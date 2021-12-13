@@ -48,10 +48,10 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'webserver_login', usernameVariable: 'USERNAME', passwordVariable: 'USERPASS')]) {
                     sshPublisher(
                         failOnError: true,
-                        continueOnError: true,
+                        continueOnError:false,
                         publishers: [
                             sshPublisherDesc(
-                                configName: 'production',
+                                configName: 'Development',
                                 sshCredentials: [
                                     username: "$USERNAME",
                                     encryptedPassphrase: "$USERPASS"
